@@ -51,3 +51,27 @@ function sendWhatsApp(){
 }
 
 renderCart();
+// تحميل السلة من الذاكرة
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// تحديث العداد
+function updateCartCount(){
+  let count = cart.length;
+
+  let counter = document.getElementById("cart-count");
+  if(counter){
+    counter.innerText = count;
+  }
+}
+
+// إضافة عنصر للسلة
+function addToCart(name, price){
+  cart.push({name, price});
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  updateCartCount();
+}
+
+// تشغيل أولي عند فتح أي صفحة
+updateCartCount();
