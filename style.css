@@ -574,3 +574,40 @@ button{
 
   font-weight:bold;
 }
+.popular-page .item{
+  width:92%;
+  max-width:520px;
+  margin:14px auto;
+
+  font-size:18px;
+
+  display:flex;
+  flex-direction:column;
+
+  gap:10px;
+}
+
+.popular-page .item p{
+  font-size:18px;
+  line-height:1.6;
+    }
+.cart-page #cart .item{
+  width:92%;
+  max-width:520px;
+
+  margin:12px auto;
+
+  font-size:18px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  gap:10px;
+
+  flex-wrap:wrap;
+  }
+.popular-page,
+.cart-page{
+  font-size:18px;
+  }
