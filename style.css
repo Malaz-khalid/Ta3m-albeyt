@@ -131,21 +131,3 @@ button{
   font-size:18px;
   margin-top:10px;
 }
-/* تحسين عام للموقع */
-body{
-  font-family: Arial, sans-serif;
-  margin:0;
-  background:#d7b899;
-  color:#3e2723;
-}
-
-/* عناوين أجمل */
-h1,h2{
-  font-weight:700;
-  letter-spacing:1px;
-}
-
-/* منع أي شكل عشوائي */
-*{
-  box-sizing:border-box;
-}
