@@ -519,7 +519,10 @@ button{
 
   margin:12px auto;
 
-  width:85%;
+  #cart .item{
+  width:95%;
+  max-width:600px;
+   }
 
   display:flex;
   justify-content:space-between;
