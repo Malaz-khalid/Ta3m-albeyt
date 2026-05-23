@@ -1,6 +1,8 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-/* إضافة للسلة */
+/* ========================
+   إضافة للسلة
+======================== */
 function addToCart(name, price){
   cart.push({name, price});
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -8,28 +10,34 @@ function addToCart(name, price){
   updateCartCount();
 }
 
-/* تحديث العداد */
+/* ========================
+   تحديث العداد (كل الصفحات)
+======================== */
 function updateCartCount(){
-  let counter = document.getElementById("cart-count");
+  const counter = document.getElementById("cart-count");
   if(counter){
     counter.innerText = cart.length;
   }
 }
 
-/* عرض السلة */
+/* ========================
+   عرض السلة (صفحة cart.html فقط)
+======================== */
 function renderCart(){
-  let container = document.getElementById("cart");
-  let totalEl = document.getElementById("total");
+  const container = document.getElementById("cart");
+  const totalEl = document.getElementById("total");
 
   if(!container) return;
 
   container.innerHTML = "";
   let total = 0;
 
-  cart.forEach((item, index)=>{
-    total += item.price;
+  cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    let div = document.createElement("div");
+  cart.forEach((item, index)=>{
+    total += Number(item.price);
+
+    const div = document.createElement("div");
     div.className = "item";
 
     div.innerHTML = `
@@ -45,15 +53,20 @@ function renderCart(){
   }
 }
 
-/* حذف عنصر */
+/* ========================
+   حذف عنصر
+======================== */
 function removeItem(index){
   cart.splice(index,1);
   localStorage.setItem("cart", JSON.stringify(cart));
+
   renderCart();
   updateCartCount();
 }
 
-/* واتساب */
+/* ========================
+   واتساب
+======================== */
 function sendWhatsApp(){
   let msg = "طلب من طعم البيت:%0A";
 
@@ -67,7 +80,9 @@ function sendWhatsApp(){
   );
 }
 
-/* تشغيل عند فتح الصفحة */
+/* ========================
+   تشغيل تلقائي
+======================== */
 document.addEventListener("DOMContentLoaded", ()=>{
   updateCartCount();
   renderCart();
