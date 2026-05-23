@@ -75,3 +75,19 @@ function addToCart(name, price){
 
 // تشغيل أولي عند فتح أي صفحة
 updateCartCount();
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name, price){
+  cart.push({name, price});
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+}
+
+function updateCartCount(){
+  let counter = document.getElementById("cart-count");
+  if(counter){
+    counter.innerText = cart.length;
+  }
+}
+
+window.onload = updateCartCount;
