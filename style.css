@@ -156,3 +156,22 @@ button{
 .item:hover, .card:hover{
   transform:translateY(-3px);
 }
+button{
+  background:linear-gradient(145deg,#5d4037,#3e2723);
+  color:white;
+
+  border:none;
+  border-radius:14px;
+
+  padding:10px 14px;
+
+  font-size:16px;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.05);
+}
