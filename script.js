@@ -1,13 +1,22 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// إضافة للسلة
-function add(name, price){
+/* إضافة للسلة */
+function addToCart(name, price){
   cart.push({name, price});
   localStorage.setItem("cart", JSON.stringify(cart));
-  alert("تمت الإضافة 🛒");
+
+  updateCartCount();
 }
 
-// عرض السلة
+/* تحديث العداد */
+function updateCartCount(){
+  let counter = document.getElementById("cart-count");
+  if(counter){
+    counter.innerText = cart.length;
+  }
+}
+
+/* عرض السلة */
 function renderCart(){
   let container = document.getElementById("cart");
   let totalEl = document.getElementById("total");
@@ -22,24 +31,29 @@ function renderCart(){
 
     let div = document.createElement("div");
     div.className = "item";
+
     div.innerHTML = `
-      ${item.name} - ${item.price}$
+      <span>${item.name} - ${item.price}$</span>
       <button onclick="removeItem(${index})">حذف</button>
     `;
+
     container.appendChild(div);
   });
 
-  totalEl.innerText = total;
+  if(totalEl){
+    totalEl.innerText = total;
+  }
 }
 
-// حذف عنصر
+/* حذف عنصر */
 function removeItem(index){
   cart.splice(index,1);
   localStorage.setItem("cart", JSON.stringify(cart));
   renderCart();
+  updateCartCount();
 }
 
-// إرسال واتساب
+/* واتساب */
 function sendWhatsApp(){
   let msg = "طلب من طعم البيت:%0A";
 
@@ -47,47 +61,14 @@ function sendWhatsApp(){
     msg += `- ${item.name} (${item.price}$)%0A`;
   });
 
-  window.open("https://wa.me/201012345678?text=" + msg, "_blank");
+  window.open(
+    "https://wa.me/201012345678?text=" + encodeURIComponent(msg),
+    "_blank"
+  );
 }
 
-renderCart();
-// تحميل السلة من الذاكرة
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-// تحديث العداد
-function updateCartCount(){
-  let count = cart.length;
-
-  let counter = document.getElementById("cart-count");
-  if(counter){
-    counter.innerText = count;
-  }
-}
-
-// إضافة عنصر للسلة
-function addToCart(name, price){
-  cart.push({name, price});
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-
+/* تشغيل عند فتح الصفحة */
+document.addEventListener("DOMContentLoaded", ()=>{
   updateCartCount();
-}
-
-// تشغيل أولي عند فتح أي صفحة
-updateCartCount();
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-function addToCart(name, price){
-  cart.push({name, price});
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
-}
-
-function updateCartCount(){
-  let counter = document.getElementById("cart-count");
-  if(counter){
-    counter.innerText = cart.length;
-  }
-}
-
-window.onload = updateCartCount;
+  renderCart();
+});
