@@ -2,97 +2,95 @@
 <html lang="ar">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>الأكلات الشعبية</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
+
+<body class="popular-page">
+
+<!-- 🛒 السلة العائمة (لازم داخل body) -->
 <a href="cart.html" class="floating-cart">
 🛒 <span id="cart-count">0</span>
 </a>
-<body class="popular-page">
 
 <h2>🍲 الأكلات الشعبية</h2>
 
 <div class="item">
   <p>قراصة بخدرة - 6$</p>
-  <button onclick="add('قراصة بخدرة',6)">أضف للسلة</button>
+  <button onclick="addToCart('قراصة بخدرة',6)">أضف للسلة</button>
 </div>
-<div class="item">
-  <p>🍽️ قراصة بخدرة</p>
 
-  <button onclick="addToCart('قراصة بخدرة', 5)">
-    أضف للسلة
-  </button>
-</div>
 <div class="item">
   <p>قراصة بويكة - 6$</p>
-  <button onclick="add('قراصة بويكة',6)">أضف للسلة</button>
+  <button onclick="addToCart('قراصة بويكة',6)">أضف للسلة</button>
 </div>
 
 <div class="item">
   <p>قراصة بدمعة - 6$</p>
-  <button onclick="add('قراصة بدمعة',6)">أضف للسلة</button>
+  <button onclick="addToCart('قراصة بدمعة',6)">أضف للسلة</button>
 </div>
 
 <div class="item">
   <p>عصيدة بملاح روب - 7$</p>
-  <button onclick="add('عصيدة روب',7)">أضف للسلة</button>
+  <button onclick="addToCart('عصيدة بملاح روب',7)">أضف للسلة</button>
 </div>
 
 <div class="item">
   <p>عصيدة بتقلية - 7$</p>
-  <button onclick="add('عصيدة تقلية',7)">أضف للسلة</button>
+  <button onclick="addToCart('عصيدة بتقلية',7)">أضف للسلة</button>
 </div>
 
 <div class="item">
   <p>كسرة بملاح روب - 6$</p>
-  <button onclick="add('كسرة روب',6)">أضف للسلة</button>
+  <button onclick="addToCart('كسرة بملاح روب',6)">أضف للسلة</button>
 </div>
 
 <div class="item">
   <p>كسرة بويكة - 6$</p>
-  <button onclick="add('كسرة بويكة',6)">أضف للسلة</button>
+  <button onclick="addToCart('كسرة بويكة',6)">أضف للسلة</button>
 </div>
 
 <div class="item">
   <p>فتة بلدي - 5$</p>
-  <button onclick="add('فتة بلدي',5)">أضف للسلة</button>
+  <button onclick="addToCart('فتة بلدي',5)">أضف للسلة</button>
 </div>
 
 <div class="item">
   <p>مفروك - 5$</p>
-  <button onclick="add('مفروك',5)">أضف للسلة</button>
+  <button onclick="addToCart('مفروك',5)">أضف للسلة</button>
 </div>
 
 <div class="item">
   <p>عصيدة بالعسل - 6$</p>
-  <button onclick="add('عصيدة عسل',6)">أضف للسلة</button>
+  <button onclick="addToCart('عصيدة بالعسل',6)">أضف للسلة</button>
 </div>
 
 <div class="item">
   <p>عصيدة باللبن - 6$</p>
-  <button onclick="add('عصيدة لبن',6)">أضف للسلة</button>
+  <button onclick="addToCart('عصيدة باللبن',6)">أضف للسلة</button>
 </div>
 
 <div class="item">
   <p>بليلة سودانية - 4$</p>
-  <button onclick="add('بليلة',4)">أضف للسلة</button>
+  <button onclick="addToCart('بليلة سودانية',4)">أضف للسلة</button>
 </div>
 
 <div class="item">
   <p>فتة تمر - 5$</p>
-  <button onclick="add('فتة تمر',5)">أضف للسلة</button>
+  <button onclick="addToCart('فتة تمر',5)">أضف للسلة</button>
 </div>
 
 <div class="item">
   <p>عصيدة سادة - 5$</p>
-  <button onclick="add('عصيدة سادة',5)">أضف للسلة</button>
+  <button onclick="addToCart('عصيدة سادة',5)">أضف للسلة</button>
 </div>
 
 <div class="item">
   <p>ملاح ويكة - 6$</p>
-  <button onclick="add('ويكة',6)">أضف للسلة</button>
+  <button onclick="addToCart('ملاح ويكة',6)">أضف للسلة</button>
 </div>
 
 <a href="index.html" class="back">⬅ رجوع</a>
