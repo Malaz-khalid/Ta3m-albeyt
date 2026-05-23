@@ -1,18 +1,13 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-/* ========================
-   إضافة للسلة
-======================== */
+/* إضافة للسلة */
 function addToCart(name, price){
   cart.push({name, price});
   localStorage.setItem("cart", JSON.stringify(cart));
-
   updateCartCount();
 }
 
-/* ========================
-   تحديث العداد (كل الصفحات)
-======================== */
+/* العداد */
 function updateCartCount(){
   const counter = document.getElementById("cart-count");
   if(counter){
@@ -20,9 +15,7 @@ function updateCartCount(){
   }
 }
 
-/* ========================
-   عرض السلة (صفحة cart.html فقط)
-======================== */
+/* عرض السلة */
 function renderCart(){
   const container = document.getElementById("cart");
   const totalEl = document.getElementById("total");
@@ -35,17 +28,14 @@ function renderCart(){
   cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   cart.forEach((item, index)=>{
-    total += Number(item.price);
+    total += item.price;
 
-    const div = document.createElement("div");
-    div.className = "item";
-
-    div.innerHTML = `
-      <span>${item.name} - ${item.price}$</span>
-      <button onclick="removeItem(${index})">حذف</button>
+    container.innerHTML += `
+      <div class="item">
+        ${item.name} - ${item.price}$
+        <button onclick="removeItem(${index})">حذف</button>
+      </div>
     `;
-
-    container.appendChild(div);
   });
 
   if(totalEl){
@@ -53,20 +43,15 @@ function renderCart(){
   }
 }
 
-/* ========================
-   حذف عنصر
-======================== */
+/* حذف */
 function removeItem(index){
   cart.splice(index,1);
   localStorage.setItem("cart", JSON.stringify(cart));
-
   renderCart();
   updateCartCount();
 }
 
-/* ========================
-   واتساب
-======================== */
+/* واتساب */
 function sendWhatsApp(){
   let msg = "طلب من طعم البيت:%0A";
 
@@ -80,9 +65,7 @@ function sendWhatsApp(){
   );
 }
 
-/* ========================
-   تشغيل تلقائي
-======================== */
+/* تشغيل تلقائي */
 document.addEventListener("DOMContentLoaded", ()=>{
   updateCartCount();
   renderCart();
