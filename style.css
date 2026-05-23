@@ -131,3 +131,51 @@ button{
   font-size:18px;
   margin-top:10px;
 }
+/* السلة العائمة */
+.floating-cart{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+
+  width:60px;
+  height:60px;
+
+  background:#5d4037;
+  color:white;
+
+  border-radius:50%;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-size:22px;
+
+  text-decoration:none;
+
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+
+  z-index:999;
+}
+
+/* رقم المنتجات */
+#cart-count{
+  position:absolute;
+
+  top:-5px;
+  right:-5px;
+
+  background:red;
+  color:white;
+
+  width:20px;
+  height:20px;
+
+  border-radius:50%;
+
+  font-size:12px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
